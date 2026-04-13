@@ -158,7 +158,7 @@ function getAppName(): string {
     const appJson = JSON.parse(appJsonContent);
     return appJson.expo?.name || "App Landing Page";
   } catch {
-    return "App Landing Page";
+    return "Tengri Astroloji";
   }
 }
 
