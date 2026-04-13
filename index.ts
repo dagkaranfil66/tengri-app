@@ -234,7 +234,6 @@ function serveLandingPage({
 function configureExpoAndLanding(app: express.Application) {
   const templatePath = path.resolve(
     process.cwd(),
-    "templates",
     "landing-page.html",
   );
   const landingPageTemplate = fs.readFileSync(templatePath, "utf-8");
@@ -242,8 +241,6 @@ function configureExpoAndLanding(app: express.Application) {
 
   log("Serving static Expo files with dynamic manifest routing");
 
-  // In development, proxy non-API traffic to the Expo dev server (port 8081)
-  // so that the Express backend (port 5000) can be the sole externally exposed port.
   if (process.env.NODE_ENV === "development") {
     const expoDevPort = 8081;
     const expoProxy = createProxyMiddleware({
@@ -251,7 +248,7 @@ function configureExpoAndLanding(app: express.Application) {
       changeOrigin: true,
       ws: true,
       on: {
-        error: (err: Error, req: any, res: any) => {
+        error: (_err: Error, _req: any, res: any) => {
           if (res && !res.headersSent) {
             res.status(502).send("Expo dev server unavailable");
           }
@@ -268,8 +265,6 @@ function configureExpoAndLanding(app: express.Application) {
     return;
   }
 
-  // Serve native Expo manifest for native clients (Expo Go, custom builds)
-  // that send the expo-platform header.
   app.use((req: Request, res: Response, next: NextFunction) => {
     if (req.path.startsWith("/api")) return next();
 
@@ -283,18 +278,13 @@ function configureExpoAndLanding(app: express.Application) {
     next();
   });
 
-  // Serve native bundle assets (iOS/Android JS bundles and images)
   app.use("/assets", express.static(path.resolve(process.cwd(), "assets")));
   app.use(express.static(path.resolve(process.cwd(), "static-build")));
 
-  // Serve the Expo web build (React Native Web) for ALL other visitors:
-  // browsers, WebView-based apps (Median), etc.
-  // This replaces the old Expo Go landing page.
   const webDistPath = path.resolve(process.cwd(), "dist");
   const webIndexPath = path.join(webDistPath, "index.html");
   if (fs.existsSync(webDistPath)) {
     app.use(express.static(webDistPath));
-    // SPA fallback: all unmatched routes return index.html
     app.use((req: Request, res: Response, next: NextFunction) => {
       if (req.path.startsWith("/api")) return next();
       if (fs.existsSync(webIndexPath)) {
@@ -306,7 +296,6 @@ function configureExpoAndLanding(app: express.Application) {
     });
     log("Web app: serving Expo web bundle from dist/");
   } else {
-    // Fallback: landing page if no web build exists
     app.use((req: Request, res: Response, next: NextFunction) => {
       if (req.path.startsWith("/api")) return next();
       if (req.path === "/") {
