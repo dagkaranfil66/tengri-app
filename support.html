@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Destek — Tengri</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(ellipse at 50% 0%, #1A0F35 0%, #06030F 70%);
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #B8A9D0;
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(90deg, #0F0825, #0D1A40, #0F0825);
+      border-bottom: 1px solid #C8A02025;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    header .logo { font-size: 11px; letter-spacing: 6px; color: #C8A020; margin-bottom: 6px; }
+    header h1 { font-size: 22px; color: #E8D9B0; font-weight: bold; }
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+    .meta { font-size: 12px; color: #6B5E8A; margin-bottom: 36px; letter-spacing: 0.5px; }
+    .card {
+      background: linear-gradient(160deg, #0F0825, #0A1230);
+      border: 1px solid #C8A02020;
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 16px;
+      color: #C8A020;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    h2::before { content: "✦ "; font-size: 12px; }
+    p { font-size: 14px; line-height: 1.8; margin-bottom: 10px; color: #B8A9D0; }
+    ul { padding-left: 20px; margin-bottom: 10px; }
+    li { font-size: 14px; line-height: 1.8; color: #B8A9D0; margin-bottom: 8px; }
+    a { color: #C8A020; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .contact-box {
+      background: linear-gradient(90deg, #1A0F35, #0D1A40);
+      border: 1px solid #C8A02030;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 8px;
+      font-size: 15px;
+      color: #C8A020;
+      text-align: center;
+    }
+    .contact-box a { font-size: 17px; font-weight: bold; }
+    .faq-q {
+      font-size: 14px;
+      color: #E8D9B0;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #B8A9D0;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #4A3E6A;
+      letter-spacing: 2px;
+      margin-top: 48px;
+      border-top: 1px solid #C8A02015;
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">✦ &nbsp; T E N G R I &nbsp; ✦</div>
+    <h1>Destek</h1>
+  </header>
+
+  <div class="container">
+    <p class="meta">tengristar.com &nbsp;·&nbsp; Yardım Merkezi</p>
+
+    <div class="card">
+      <h2>Bize Ulaşın</h2>
+      <p>Sorularınız, görüşleriniz veya teknik sorunlarınız için destek ekibimize ulaşabilirsiniz. En geç <strong style="color:#E8D9B0;">24 saat</strong> içinde yanıt veririz.</p>
+      <div class="contact-box">
+        ✦ &nbsp; <a href="mailto:destek@tengristar.com">destek@tengristar.com</a> &nbsp; ✦
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Sık Sorulan Sorular</h2>
+
+      <div class="faq-q">Altın bakiyem neden azaldı?</div>
+      <div class="faq-a">Her mistik okuma belirli miktarda altın harcatır. Servis seçim ekranında altın maliyetini görebilirsiniz. Hesabınızdaki bakiye her okuma sonrasında güncellenir.</div>
+
+      <div class="faq-q">Satın aldığım altınlar hesabıma geçmedi, ne yapmalıyım?</div>
+      <div class="faq-a">Uygulama içi satın alımlar App Store veya Google Play üzerinden işlenir. Ödeme başarılıysa birkaç dakika içinde hesabınıza yansır. Sorun devam ederse destek e-postamıza satın alma makbuzunuzu ileterek yazın.</div>
+
+      <div class="faq-q">Şifremi unuttum, nasıl sıfırlarım?</div>
+      <div class="faq-a">Giriş ekranında "Şifremi Unuttum" bağlantısına tıklayın. Kayıtlı e-posta adresinize sıfırlama bağlantısı gönderilecektir. E-posta gelmediyse spam klasörünüzü kontrol edin.</div>
+
+      <div class="faq-q">Hesabımı nasıl silebilirim?</div>
+      <div class="faq-a">Uygulama içinden <strong style="color:#E8D9B0;">Profil → Hesabımı Sil</strong> seçeneğini kullanabilirsiniz. Alternatif olarak destek e-postamıza yazarak hesap silme talebinde bulunabilirsiniz. Talepler en geç 30 gün içinde işleme alınır.</div>
+
+      <div class="faq-q">Yüklediğim fotoğraflar nerede saklanıyor?</div>
+      <div class="faq-a">Kahve falı veya el falı için gönderdiğiniz fotoğraflar yalnızca analiz sırasında kullanılır ve sunucularımızda kalıcı olarak saklanmaz. Gizliliğiniz bizim için önceliktir.</div>
+
+      <div class="faq-q">Uygulama hangi dilleri destekliyor?</div>
+      <div class="faq-a">Tengri Türkçe ve İngilizce dil desteği sunmaktadır. Dil tercihinizi profil ayarlarından değiştirebilirsiniz.</div>
+
+      <div class="faq-q">Abonelik veya iade talep etmek istiyorum.</div>
+      <div class="faq-a">Satın alımlar Apple App Store veya Google Play üzerinden gerçekleştirildiğinden iade talepleri bu platformlar aracılığıyla yapılmalıdır. Detaylar için ilgili platform destek sayfasını ziyaret edin veya destek@tengristar.com adresine yazın.</div>
+    </div>
+
+    <div class="card">
+      <h2>Teknik Sorunlar</h2>
+      <p>Uygulama ile ilgili teknik sorun yaşıyorsanız:</p>
+      <ul>
+        <li>Uygulamayı tamamen kapatıp yeniden açmayı deneyin</li>
+        <li>İnternet bağlantınızı kontrol edin</li>
+        <li>Uygulama mağazasından güncelleme olup olmadığını kontrol edin</li>
+        <li>Sorun devam ederse <a href="mailto:destek@tengristar.com">destek@tengristar.com</a> adresine yazın</li>
+      </ul>
+    </div>
+
+    <footer>tengristar.com &nbsp;✦&nbsp; Kadim Türk Mistisizmi &nbsp;✦&nbsp; © 2026 Tengri</footer>
+  </div>
+</body>
+</html>
