@@ -7,7 +7,7 @@ import bcrypt from "bcryptjs";
 import crypto from "node:crypto";
 import nodemailer from "nodemailer";
 import { db } from "./db";
-import { users } from "@shared/schema";
+import { users } from "./schema";
 import { eq } from "drizzle-orm";
 
 // ─── Expo Push Notification ────────────────────────────────────────────────────
