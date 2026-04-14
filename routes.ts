@@ -420,6 +420,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.send(fs.readFileSync(templatePath, "utf-8"));
   });
 
+  app.get("/setup-db", async (_req: Request, res: Response) => {
+  try {
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        verified BOOLEAN DEFAULT FALSE,
+        verify_token TEXT,
+        reset_code TEXT,
+        reset_code_expiry TIMESTAMP,
+        created_at TIMESTAMP DEFAULT NOW(),
+        share_count_today INTEGER DEFAULT 0,
+        last_share_timestamp TIMESTAMP,
+        last_share_date DATE,
+        shared_reading_ids TEXT[] DEFAULT '{}',
+        push_token TEXT
+      );
+    `);
+
+    res.send("DB hazır");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Hata");
+  }
+ });
+
   app.post("/api/auth/register", async (req: Request, res: Response) => {
     try {
       const { name, email, password } = req.body;
